@@ -1,7 +1,7 @@
 // Comment.js
 import React from 'react';
 
-class Comment extends React.Component {
+class Comments extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -111,4 +111,4 @@ class Comment extends React.Component {
   }
 }
 
-module.exports = Comment;
+module.exports = Comments;

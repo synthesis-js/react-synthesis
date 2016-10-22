@@ -1,6 +1,6 @@
 // synthesis.js
 const pluginConfig = {
-	name: 'Comment', 
+	name: 'Comments', 
 	mount_point: 'post-view'
 }
 
