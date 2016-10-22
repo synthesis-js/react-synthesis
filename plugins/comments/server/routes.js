@@ -1,4 +1,4 @@
-const commentController = require('./comment-controller');
+const commentController = require('./controller');
 
 module.exports = function(app) {
 

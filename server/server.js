@@ -138,11 +138,11 @@ app.delete('/api/plugin_item/:plugin_item_id', pluginItemController.deletePlugin
 app.delete('/api/plugin_item/:plugin_item_id', pluginItemController.deletePluginItemById);
 
 // ** PLUGINS **
-const pluginsRoutes = require('./plugins'); 
-require('./plugins/comment-routes')(app);
+const pluginsRoutes = require('../plugins/Comments/server'); 
+require('../plugins/Comments/server/routes')(app);
 
 // configuring env production port
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 
 // spinning up the server 
 app.listen(PORT, function () {
