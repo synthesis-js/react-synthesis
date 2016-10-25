@@ -43,7 +43,7 @@ program
        .set('Accept', 'application/json')
        .send(newBlog)       
        .end(function (err, res) {
-         if (err.status === 404) {
+         if (err) {
           //  console.log(err.status);
            console.log('closing connection...');
            process.exit();
