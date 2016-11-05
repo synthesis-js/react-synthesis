@@ -5,8 +5,8 @@ let postController = {};
 // creating the post on mongo
 postController.createPost = (req, res) => {
   let bodyObj = req.body;
+  let newPost = new Post();
 
-  var newPost = new Post();
   newPost.title = bodyObj.title;
   newPost.body = bodyObj.body;
   newPost.user_id = bodyObj.user_id;

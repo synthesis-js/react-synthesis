@@ -6,8 +6,8 @@ let pluginItemController = {};
 // creating the plugin item on mongo
 pluginItemController.createPluginItem = (req, res) => {
   let bodyObj = req.body;
-
   let newPluginItem = new PluginItem();
+
   newPluginItem.data_values = bodyObj.data_values;
 
   newPluginItem.save(function(err){

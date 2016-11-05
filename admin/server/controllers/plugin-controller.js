@@ -6,8 +6,8 @@ let pluginController = {};
 // creating the plugin on mongo
 pluginController.createPlugin = (req, res) => {
   let bodyObj = req.body;
-
   let newPlugin = new Plugin();
+
   newPlugin.name = bodyObj.name;
   newPlugin.mount_point = bodyObj.mount_point;
   newPlugin.plugin_properties = bodyObj.plugin_properties;

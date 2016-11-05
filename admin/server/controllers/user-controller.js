@@ -9,11 +9,9 @@ let userController = {};
 
 // create the user on mongoDB
 userController.createUser = (req, res) => {
-  console.log(req.body);
-
   let bodyObj = req.body;
-
   let newUser = new User();
+
   newUser.email = bodyObj.email;
   newUser.password = bodyObj.password;
   newUser.name = bodyObj.name;
@@ -21,8 +19,6 @@ userController.createUser = (req, res) => {
 
   newUser.save(function(err, res, next){
     if (err) {
-      let newError = new Error('error! duplicated email in database.');
-      // res.status(500).send({error: 'error! duplicated email in database.'});
       return 'duplicated email';
     } 
   }).then(() => {

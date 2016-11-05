@@ -5,11 +5,10 @@ let blogController = {};
 
 // create the blog on mongoDB
 blogController.createBlog = (req, res) => {
-  console.log('this is the body: %s',req.body);
 
   let bodyObj = req.body;
-
   let newBlog = new Blog();
+
   newBlog.title = bodyObj.title;
   newBlog.description = bodyObj.description;
   newBlog.user_id = bodyObj.user_id;  

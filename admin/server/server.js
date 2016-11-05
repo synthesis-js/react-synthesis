@@ -29,8 +29,6 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 // serving static from client folder
 app.use((req, res, next) => {
-  console.log(Date.now(),req.url);
-  console.log(res.get('Content-Type'));
   // Cors
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -145,6 +143,7 @@ app.delete('/api/plugin_item/:plugin_item_id', pluginItemController.deletePlugin
 // const pluginsRoutes = require('./plugins');
 
 // ** PLUGINS ** DO NOT EDIT BELOW vvv
+// this section is going to be automatically edited by de CLI
 
 //%%begin%%
 require('../../plugins/Comments/server/routes')(app);
@@ -160,12 +159,6 @@ app.get('/api/stored-plugins', (req, res) => {
   });
   res.send(plugins)
 })
-
-// function getDirectories(srcpath) {
-//   return fs.readdirSync(srcpath).filter(function(file) {
-//     return fs.statSync(path.join(srcpath, file)).isDirectory();
-//   });
-// }
 
 // configuring env production port
 const PORT = process.env.PORT || 3000

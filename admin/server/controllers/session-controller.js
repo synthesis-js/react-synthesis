@@ -17,19 +17,14 @@ sessionController.isLoggedIn = (req, res, next) => {
   	if (err) throw err;
   	if (session){
   		if (session.cookieId === req.cookies.ssid){
-  			console.log('session is active',req.cookies);
   			next();
   		}
   		else {
-  			console.log('not active anymore', req.cookies)
-  			// res.redirect('/signup');
-				res.end();
+			res.end();
   		}
   	}
   	else {
-        console.log('no session on db', req.cookies)
-  			// res.redirect('/components/login.html');
-				res.end();
+			res.end();
   		}
 	});
   

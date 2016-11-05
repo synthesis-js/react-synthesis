@@ -7,6 +7,7 @@ let collectionItemController = {};
 collectionItemController.createCollectionItem = (req, res) => {
   let bodyObj = req.body;
   let newCollectionItem = new CollectionItem();
+
   newCollectionItem.item_properties = bodyObj.item_properties;
   newCollectionItem.collection_id = bodyObj.collection_id;
   newCollectionItem.user_id = bodyObj.user_id;
@@ -26,23 +27,8 @@ collectionItemController.getAllCollectionItems = (req, res) => {
   });
 };
 
-// //listing collection by id
-// collectionController.getCollectionById = (req, res) => {
-//   Collection.findById(req.params.post_id, (err, result) => {
-//     if (err) return res.status(500).send(err);
-//     return res.json(result); 
-//   });
-// };
 
-// //updating collection by id
-// collectionController.updateCollectionById = (req, res) => {
-//   Collection.findByIdAndUpdate(req.params.post_id, req.body, (err, result) => {
-//     if (err) return res.status(500).send(err);
-//     return res.status(200).send(result);
-//   });
-// };
-
-// //deleting collection by id
+//deleting collection by id
 collectionItemController.deleteCollectionItemById = (req, res) => {
   CollectionItem.findByIdAndRemove(req.params.item_id, (err, result) => {
     if (err) return res.status(500).send(err);

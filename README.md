@@ -53,7 +53,7 @@ If no users have been created you will be redirected to the sign-up page to crea
 We have created a Docker support for the production environment.
 
 ```
-> docker build -f Dockerfile-prod -t react-synthesis/backend .
+> docker build -t react-synthesis/backend .
 > docker run -t -p 49170:3000 react-synthesis/backend
 ```
 

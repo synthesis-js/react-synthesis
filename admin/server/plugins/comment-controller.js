@@ -5,8 +5,8 @@ let commentController = {};
 // creating the post on mongo
 commentController.createComment = (req, res) => {
   let bodyObj = req.body;
+  let newComment = new Comment();
 
-  var newComment = new Comment();
   newComment.body = bodyObj.body;
   newComment.author = bodyObj.author;
   newComment.author_email = bodyObj.author_email;  
