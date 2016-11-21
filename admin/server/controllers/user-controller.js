@@ -74,7 +74,7 @@ userController.updateUserById = (req, res) => {
 userController.deleteUserById = (req, res) => {
   User.findByIdAndRemove(req.params.user_id, (err, result) => {
     if (err) return res.status(500).send(err);
-    return res.status(200).send('post deleted');
+    return res.status(200).send('user deleted');
   });
 };
 
