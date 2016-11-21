@@ -18,9 +18,10 @@ const pluginItemController = require('./controllers/plugin-item-controller');
 var nodemailer = require("nodemailer");
 
 //connecting to the database
+if (process.env.NODE_ENV === 'test') dbConfig.url = 'mongodb://localhost/synthesis-test';
 mongoose.connect(dbConfig.url, function(err) {
   if (err) return console.error(err);
-  console.log('connected to mongoDB @ mlab');
+  console.log('connected to mongoDB', dbConfig.url);
 });
 
 // handling cookies for all requests
