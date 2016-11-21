@@ -67,4 +67,4 @@ Have an idea for a package or a feature you'd love to see in Synthesis? Check ou
 
 ## License
 
-Synhesis is <a href="https://github.com/synthesis-js/synthesis/blob/master/LICENSE" >MIT licensed</a>
+Synthesis is <a href="https://github.com/synthesis-js/synthesis/blob/master/LICENSE" >MIT licensed</a>
