@@ -64,9 +64,9 @@ userController.getUserById = (req, res) => {
 //updating user by id
 userController.updateUserById = (req, res) => {
   User.findByIdAndUpdate(req.params.user_id, req.body, (err, result) => {
-    console.log(req.body, 'here')
     if (err) return res.status(500).send(err);
-    return res.status(200).send(result);
+    let updatedUser = Object.assign(result, req.body);
+    return res.status(200).send(updatedUser);
   });
 };
 
