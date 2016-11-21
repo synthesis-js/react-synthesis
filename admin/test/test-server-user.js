@@ -90,6 +90,23 @@ describe('Users', () => {
 	      done();
 	    });
 	});
-	it('should update a SINGLE user on /api/user/<id> PUT');
+	it('should update a SINGLE user on /api/user/<id> PUT', (done) => {
+		chai.request(app)
+			.get('/api/users')
+			.end((err, res) => {
+				chai.request(app)
+					.put('/api/user/' + res.body[0]._id)
+					.send({'name': 'New Name'})
+					.end((error, response) => {
+	          response.should.have.status(200);
+	          response.should.be.json;
+	          response.body.should.be.a('object');
+	          response.body.should.have.property('name');
+	          response.body.should.have.property('_id');
+	          response.body.name.should.equal('New Name');
+	          done();						
+					});
+			});
+	});
 	it('should delete a SINGLE user on /api/user/<id> DELETE');
 });
