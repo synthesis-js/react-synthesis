@@ -108,5 +108,22 @@ describe('Users', () => {
 					});
 			});
 	});
-	it('should delete a SINGLE user on /api/user/<id> DELETE');
+	it('should delete a SINGLE user on /api/user/<id> DELETE', (done) => {
+	  chai.request(app)
+	    .get('/api/users')
+	    .end((err, res) => {
+	      chai.request(app)
+	        .delete('/api/user/'+res.body[0]._id)
+	        .end((error, response) => {
+	          response.should.have.status(200);
+	          response.should.be.json;
+	          response.body.should.be.a('object');
+	          response.body.should.have.property('name');
+	          response.body.should.have.property('email');
+	          response.body.should.have.property('_id');
+	          response.body.name.should.equal('Test Guy');
+	          done();
+	      });
+	    });
+	});
 });
