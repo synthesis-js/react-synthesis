@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "nodemon admin/server/server.js",
-    "test": "mocha -w test/helpers/browser.js test/*.spec.js",
+    "test": "mocha -w admin/test",
     "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "build": "node_modules/webpack/bin/webpack.js"
   },
@@ -61,6 +61,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "enzyme": "^2.4.1",
     "jsdom": "^9.6.0",
     "md5": "^2.2.1",

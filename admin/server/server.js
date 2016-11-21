@@ -167,3 +167,5 @@ const PORT = process.env.PORT || 3000
 app.listen(PORT, function () {
   console.log('react synthesis listening on port %s!', PORT);
 });
+
+module.exports = app;
