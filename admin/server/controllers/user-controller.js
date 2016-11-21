@@ -17,22 +17,28 @@ userController.createUser = (req, res) => {
   newUser.name = bodyObj.name;
   newUser.blog_id = bodyObj.blog_id;
 
-  newUser.save(function(err, res, next){
+  newUser.save(function(err, response, next){
     if (err) {
-      return 'duplicated email';
+      console.error(err.message)
+      return res.status(500).send(err.message).end();
+    } else {
+      startSession();
     } 
-  }).then(() => {
-    User.findOne({email: newUser.email}, (err,user) => {
+  })
+
+  function startSession() {
+    User.findOne({email: newUser.email}, (err, user) => {
       if (err) return res.status(500).send(err);
       if (user) {
         let newToken = new Buffer(serverConfig.sessionSecret + user.email).toString('base64');
         cookieController.setSSIDCookie(req, res, newToken);
-        res.send({user})        
+        res.setHeader('Content-Type', 'application/json');
+        return res.status(200).send(user).end();
       } else {
         return res.status(500).send('no user for you');
       }
     })
-  });
+  };
 };
 
 // list all users
