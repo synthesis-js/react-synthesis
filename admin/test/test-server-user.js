@@ -38,10 +38,41 @@ describe('Users', () => {
 	      res.should.have.status(200);
 	      res.should.be.json;
 	      res.body.should.be.a('array');
+	      res.body[0].should.have.property('name');
+	      res.body[0].name.should.equal('Test Guy');
+	      res.body[0].should.have.property('email');
+	      res.body[0].email.should.equal('testing@email.com');
+	      res.body[0].should.have.property('_id');
+	      res.body[0].should.have.property('password');
+	      res.body[0].should.have.property('created_at');
+	      res.body[0].should.have.property('user_type');
 	      done();
 	  	});
 	});
-	it('should list a SINGLE user on /api/user/<id> GET');
+	it('should list a SINGLE user on /api/user/<id> GET', (done) => {
+		const newUser = new User({
+			name: 'Get Test',
+			email: 'gettest@user.com',
+			password: 'testPass'
+		});
+
+		newUser.save((err, data) => {
+			chai.request(app)
+				.get('/api/user/' + data.id)
+				.end((err, res) => {
+					res.should.have.status(200);
+					res.should.be.json;
+					res.body.should.be.a('object');
+					res.body._id.should.equal(data.id);
+          res.body.should.have.property('_id');
+          res.body.should.have.property('name');
+          res.body.should.have.property('email');
+          res.body.name.should.equal('Get Test');
+          res.body.email.should.equal('gettest@user.com');
+					done();
+				});
+		});
+	});
 	it('should add a SINGLE user on /api/user POST', (done) => {
 	  chai.request(app)
 	    .post('/api/user')
