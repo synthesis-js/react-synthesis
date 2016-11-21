@@ -3,12 +3,34 @@ process.env.NODE_ENV = 'test';
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const mongoose = require('mongoose');
+const User = require('../server/models/user');
 const app = require('../server/server');
-const should = chai.should();
 
+const should = chai.should();
 chai.use(chaiHttp);
 
 describe('Users', () => {
+
+	User.collection.drop();
+
+	beforeEach((done) => {
+		let newUser = new User({
+			'email': 'testing@email.com', 
+			'password': 'testing', 
+			'name': 'Test Guy'
+		});
+
+		newUser.save((err) => {
+			done();
+		});
+	});
+
+	afterEach((done) => {
+		User.collection.drop();
+		done();
+	});
+
 	it('should list All users on /api/users GET', (done) => {
 	  chai.request(app)
 	    .get('/api/users')
@@ -23,7 +45,7 @@ describe('Users', () => {
 	it('should add a SINGLE user on /api/user POST', (done) => {
 	  chai.request(app)
 	    .post('/api/user')
-	    .send({'email': 'testing@email.com', 'password': 'testing', 'name': 'Test Guy'})
+	    .send({'email': 'testing2@email.com', 'password': 'testing2', 'name': 'Test2 Guy'})
 	    .end(function(err, res){
 	      res.should.have.status(200);
 	      res.should.be.json;
