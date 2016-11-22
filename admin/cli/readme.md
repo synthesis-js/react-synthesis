@@ -1,10 +1,10 @@
-# cli toolbelt command center
+# CLI toolbelt command center
 
-as a developer you can use the cli toolbelt to create the main app, super user to access the dashboard and also have the basic plugin set up through it.
+As a developer you can use the cli toolbelt to create the main app, super user to access the dashboard and also have the basic plugin set up through it.
 
-## app and superuser setup
+## App and superuser setup
 
-- 1. Run the synth command passing in the name of you app and wait for the other questions via prompt: 
+- 1. Run the synth command passing in the name of you app and wait for the other questions via prompt:
 
 ````
 synth <nameApp>
@@ -26,13 +26,13 @@ Important (2): you will need the server running to be able to post the data to y
 
 - 3. After the confirmation you're safe to ctrl+c.
 
-## plugin infraestructure setup
+## Plugin infrastructure setup
 
-- 1. the plugin setup will create all the files and folder structure, react and server, needed in order to begin extending react synthesis js.
+- 1. The plugin setup will create all the files and folder structure, react and server, needed in order to begin extending react synthesis js.
 
-some of the files are going to be fully ready to go and other will need more attention from the team.
+Some of the files are going to be fully ready to go and other will need more attention from the team.
 
-here is the basic strutcture that will be created inside the plugins folder:
+Here is the basic strutcture that will be created inside the plugins folder:
 
 ```
 -/plugins
@@ -52,17 +52,17 @@ here is the basic strutcture that will be created inside the plugins folder:
     - synth.js
 ```
 
-- 2. to create a new plugin use:
+- 2. To create a new plugin use:
 
 ```
 synth-plugin <appName>
 ````
 
-- 3. enter the mount-point for the plugin
+- 3. Enter the mount-point for the plugin
 ```
     -> post-feed - plugins that run on the list of posts of the app.
     -> post-view - plugins that are showed on the post view.
     -> dashboard - plugins that run only on the dashboard and are not visualised on frontend.
 ```
 
-- 4. wait for the confirmation message and you're safe to ctrl+c.
+- 4. Wait for the confirmation message and you're safe to ctrl+c.
